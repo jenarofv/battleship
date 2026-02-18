@@ -1,0 +1,37 @@
+{
+  "name": "battleship",
+  "version": "1.0.0",
+  "description": "battleship project for the odin project",
+  "homepage": "https://github.com/jenarofv/battleship#readme",
+  "bugs": {
+    "url": "https://github.com/jenarofv/battleship/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jenarofv/battleship.git"
+  },
+  "license": "ISC",
+  "author": "jenarofv",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.0",
+    "@eslint/js": "^9.39.2",
+    "babel-jest": "^30.2.0",
+    "eslint": "^10.0.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.3.0",
+    "husky": "^9.1.7",
+    "jest": "^30.2.0",
+    "lint-staged": "^16.2.7",
+    "prettier": "3.8.1"
+  }
+}
