@@ -1,11 +1,11 @@
 import { test, expect } from "@jest/globals";
-import { User } from "./User.js";
+import { Player } from "./Player.js";
 
-describe("User tests", () => {
+describe("Player tests", () => {
   let player1;
-  test("user can be created", () => {
+  test("Player can be created", () => {
     expect(() => {
-      player1 = new User("human");
+      player1 = new Player("human");
     }).not.toThrow();
   });
   test("player can be defeated", () => {

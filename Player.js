@@ -1,6 +1,6 @@
 import { Gameboard } from "./Gameboard.js";
 
-class User {
+class Player {
   #type = "human";
 
   constructor(type) {
@@ -20,4 +20,4 @@ class User {
   }
 }
 
-export { User };
+export { Player };
