@@ -1,7 +1,6 @@
 import { Ship } from "./Ship.js";
 
 class Gameboard {
-  #ships;
   #usedCells = {};
   #missedShots = [];
   #receivedAttacks = [];
@@ -11,7 +10,7 @@ class Gameboard {
   }
 
   constructor() {
-    this.#ships = [];
+    this.ships = [];
   }
 
   addShip(length, head, vertical = true) {
@@ -39,7 +38,7 @@ class Gameboard {
       throw new Error("some cell is already used by another ship");
     }
     const ship = new Ship(length);
-    this.#ships.push(ship);
+    this.ships.push(ship);
     for (const coord of shipCoords) {
       this.#usedCells[Gameboard.#key(coord)] = ship;
     }
@@ -57,7 +56,7 @@ class Gameboard {
       return "missed";
     }
     attackedShip.hit();
-    if (this.#ships.every((boat) => boat.isSunk())) {
+    if (this.ships.every((boat) => boat.isSunk())) {
       return "fleet sunk";
     } else if (attackedShip.isSunk()) {
       return "ship sunk";
