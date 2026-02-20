@@ -5,6 +5,7 @@ class Grid {
       throw new Error(`element with ID #${name} already exists`);
     }
     const gridContainer = document.createElement("div");
+    gridContainer.id = `${name}`;
     gridContainer.classList.add("gameboard-container");
     const grid = document.createElement("div");
     body.appendChild(gridContainer);
@@ -34,10 +35,10 @@ class Grid {
       "Delta",
       "Echo",
       "Foxtrot",
+      "Golf",
       "Hotel",
       "Kilo",
       "Lima",
-      "Golf",
     ];
     for (const letter of phoneticAlphabet) {
       const letterDiv = document.createElement("div");
