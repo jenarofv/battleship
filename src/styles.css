@@ -1,12 +1,14 @@
 :root {
-  --background-color: hsl(177deg, 50%, 41%);
+  --background-color: hsl(177deg, 50%, 50%);
   --font-color: black;
+  --boat-color: hsl(0deg, 0%, 10%);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background-color: hsl(177deg, 50%, 21%);
     --font-color: white;
+    --boat-color: hsl(0deg, 0%, 90%);
   }
 }
 
@@ -54,4 +56,16 @@ h1 {
 .gameboard-title {
   margin-top: 80px;
   text-align: center;
+}
+
+.boat {
+  background-color: var(--boat-color);
+}
+
+.hit {
+  background-color: orange;
+}
+
+.missed {
+  background-color: white;
 }

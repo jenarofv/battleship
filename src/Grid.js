@@ -53,8 +53,18 @@ class Grid {
       xLabelsContainer.appendChild(letterDiv);
     }
     gridContainer.appendChild(xLabelsContainer);
-    return grid;
   }
 }
 
-export { Grid };
+class PlayerGrid extends Grid {
+  constructor(name) {
+    super(name, "Player Grid");
+  }
+}
+class AttackGrid extends Grid {
+  constructor(name) {
+    super(name, "Attack Grid");
+  }
+}
+
+export { Grid, PlayerGrid, AttackGrid };
