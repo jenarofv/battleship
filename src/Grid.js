@@ -1,5 +1,5 @@
 class Grid {
-  constructor(name) {
+  constructor(name, title = "") {
     const body = document.querySelector("body");
     if (document.getElementById(`#${name}`)) {
       throw new Error(`element with ID #${name} already exists`);
@@ -8,6 +8,12 @@ class Grid {
     gridContainer.id = `${name}`;
     gridContainer.classList.add("gameboard-container");
     const grid = document.createElement("div");
+    if (title !== "") {
+      const titleElement = document.createElement("h2");
+      titleElement.textContent = title;
+      titleElement.classList.add("gameboard-title");
+      gridContainer.appendChild(titleElement);
+    }
     body.appendChild(gridContainer);
     gridContainer.appendChild(grid);
     grid.classList.add("gameboard");

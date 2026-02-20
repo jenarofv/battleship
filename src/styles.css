@@ -50,3 +50,8 @@ h1 {
   text-align: end;
   font-weight: bold;
 }
+
+.gameboard-title {
+  margin-top: 80px;
+  text-align: center;
+}
