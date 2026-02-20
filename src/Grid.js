@@ -11,6 +11,13 @@ class Grid {
     gridContainer.appendChild(grid);
     grid.classList.add("gameboard");
     for (let i = 0; i < 10; i++) {
+      const letterDiv = document.createElement("div");
+      const p = document.createElement("p");
+      p.textContent = `${10 - i}`;
+      letterDiv.style.textAlign = "center";
+      p.style.verticalAlign = "middle";
+      letterDiv.appendChild(p);
+      grid.appendChild(letterDiv);
       for (let j = 0; j < 10; j++) {
         const cell = document.createElement("div");
         cell.classList.add("cell");
@@ -20,6 +27,7 @@ class Grid {
     const xLabelsContainer = document.createElement("div");
     xLabelsContainer.classList.add("x-labels");
     const phoneticAlphabet = [
+      "",
       "Alpha",
       "Bravo",
       "Charlie",
