@@ -1,3 +1,25 @@
+:root {
+  --background-color: hsl(177deg, 50%, 41%);
+  --font-color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: hsl(177deg, 50%, 21%);
+    --font-color: white;
+  }
+}
+
 * {
   font-family: Arial, Ubuntu, sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: var(--background-color);
+  color: var(--font-color);
+}
+
+h1 {
+  text-align: center;
 }
