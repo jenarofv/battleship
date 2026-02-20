@@ -44,8 +44,8 @@ class Grid {
       "Foxtrot",
       "Golf",
       "Hotel",
-      "Kilo",
-      "Lima",
+      "India",
+      "Juliet",
     ];
     for (const letter of phoneticAlphabet) {
       const letterDiv = document.createElement("div");
