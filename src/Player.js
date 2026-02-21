@@ -23,8 +23,8 @@ class Player {
     if (numOfShips > 9) {
       throw new RangeError("too much ships!");
     }
-    let i = 1;
-    while (i <= numOfShips) {
+    let i = 2;
+    while (i <= numOfShips + 1) {
       const randX = Math.floor(Math.random() * 10);
       const randY = Math.floor(Math.random() * 10);
       const vert = Math.random() > 0.5;
