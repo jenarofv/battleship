@@ -1,5 +1,6 @@
 class Grid {
   constructor(name, title = "") {
+    this.name = name;
     const body = document.querySelector("body");
     if (document.getElementById(`#${name}`)) {
       throw new Error(`element with ID #${name} already exists`);
@@ -53,6 +54,23 @@ class Grid {
       xLabelsContainer.appendChild(letterDiv);
     }
     gridContainer.appendChild(xLabelsContainer);
+  }
+
+  render(player) {
+    const shipCells = player.gameboard.usedCells;
+    const missedShots = player.gameboard.missedShots;
+    const attackedCells = player.gameboard.receivedAttacks;
+    const cells = document.querySelectorAll(`#${this.name} .cell`);
+    for (const cell of cells) {
+      cell.textContent = "";
+      cell.className = "cell";
+      if (shipCells[cell.coords] !== undefined) {
+        cell.classList.add("boat");
+      }
+      if (attackedCells.includes(cell.coords)) {
+        cell.textContent = "✘";
+      }
+    }
   }
 }
 
