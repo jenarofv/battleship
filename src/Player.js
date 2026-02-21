@@ -31,7 +31,7 @@ class Player {
       try {
         this.gameboard.addShip(i, [randX, randY], vert);
         i++;
-      } catch (err) {}
+      } catch {}
     }
   }
 }
