@@ -6,7 +6,7 @@ class Gameboard {
   receivedAttacks = [];
 
   static #key(coord) {
-    return `${coord[0]}${coord[1]}`;
+    return `${coord[0]},${coord[1]}`;
   }
 
   constructor() {
