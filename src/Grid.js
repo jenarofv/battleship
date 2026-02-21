@@ -58,7 +58,6 @@ class Grid {
 
   render(player) {
     const shipCells = player.gameboard.usedCells;
-    const missedShots = player.gameboard.missedShots;
     const attackedCells = player.gameboard.receivedAttacks;
     const cells = document.querySelectorAll(`#${this.name} .cell`);
     for (const cell of cells) {
