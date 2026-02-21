@@ -9,7 +9,7 @@ function addShiptoCell(event, player) {
   }
 }
 
-function attackCell(event, oponent) {
+function pvcAttack(event, player, oponent) {
   const cell = event.target;
   const coords = cell.coords.split(",");
   try {
@@ -17,22 +17,32 @@ function attackCell(event, oponent) {
     switch (attackResult) {
       case "missed":
         cell.classList.add("missed");
-        break;
+        return "";
       case "ship hit":
         cell.classList.add("hit");
-        break;
+        return "";
       case "ship sunk":
         cell.classList.add("hit");
         alert("Ship was sunk!");
-        break;
+        return "";
       case "fleet sunk":
         cell.classList.add("hit");
         alert("you win");
-        break;
+        return "game over";
     }
   } catch (err) {
     alert(err);
   }
 }
 
-export { addShiptoCell, attackCell };
+function computerAttack(oponent) {
+  try {
+    const randX = Math.floor(Math.random() * 10);
+    const randY = Math.floor(Math.random() * 10);
+    oponent.gameboard.receiveAttack([randX, randY]);
+  } catch {
+    computerAttack(oponent);
+  }
+}
+
+export { addShiptoCell, pvcAttack, computerAttack };
