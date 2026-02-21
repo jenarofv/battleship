@@ -1,9 +1,9 @@
 import { Ship } from "./Ship.js";
 
 class Gameboard {
-  #usedCells = {};
-  #missedShots = [];
-  #receivedAttacks = [];
+  usedCells = {};
+  missedShots = [];
+  receivedAttacks = [];
 
   static #key(coord) {
     return `${coord[0]}${coord[1]}`;
@@ -32,7 +32,7 @@ class Gameboard {
     }
     if (
       shipCoords.some(
-        (coord) => this.#usedCells[Gameboard.#key(coord)] !== undefined,
+        (coord) => this.usedCells[Gameboard.#key(coord)] !== undefined,
       )
     ) {
       throw new Error("some cell is already used by another ship");
@@ -40,19 +40,19 @@ class Gameboard {
     const ship = new Ship(length);
     this.ships.push(ship);
     for (const coord of shipCoords) {
-      this.#usedCells[Gameboard.#key(coord)] = ship;
+      this.usedCells[Gameboard.#key(coord)] = ship;
     }
   }
 
   receiveAttack(coord) {
     const key = Gameboard.#key(coord);
-    if (this.#receivedAttacks.includes(key)) {
+    if (this.receivedAttacks.includes(key)) {
       throw new Error("cell already attacked");
     }
-    this.#receivedAttacks.push(key);
-    const attackedShip = this.#usedCells[key];
+    this.receivedAttacks.push(key);
+    const attackedShip = this.usedCells[key];
     if (attackedShip === undefined) {
-      this.#missedShots.push(key);
+      this.missedShots.push(key);
       return "missed";
     }
     attackedShip.hit();
