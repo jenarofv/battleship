@@ -1,6 +1,6 @@
 function addShiptoCell(event, player) {
   const cell = event.target;
-  const coords = cell.coords.split(",");
+  const coords = cell.coords.split(",").map((str) => Number(str));
   try {
     player.gameboard.addShip(1, coords);
     cell.classList.add("boat");
