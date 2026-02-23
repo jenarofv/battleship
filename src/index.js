@@ -20,19 +20,16 @@ player2.placeRandomShips(6);
 player1Grid.render(player1);
 
 function turn(e) {
-  function foo(e, player1, player2) {
-    const result = pvcAttack(e, player1, player2);
-    if (result === "game over") {
-      let attackCells = document.querySelectorAll(`#attackGrid .cell`);
-      for (const cell of attackCells) {
-        cell.removeEventListener("click", turn);
-      }
-      return;
+  const result = pvcAttack(e, player1, player2);
+  if (result === "game over") {
+    let attackCells = document.querySelectorAll(`#attackGrid .cell`);
+    for (const cell of attackCells) {
+      cell.removeEventListener("click", turn);
     }
-    computerAttack(player1);
-    player1Grid.render(player1);
+    return;
   }
-  return foo(e, player1, player2);
+  computerAttack(player1);
+  player1Grid.render(player1);
 }
 
 let attackCells = document.querySelectorAll(`#attackGrid .cell`);
