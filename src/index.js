@@ -8,4 +8,4 @@ title.innerHTML = "Battleship";
 title.style.textTransform = "uppercase";
 body.appendChild(title);
 
-new PvC();
+new PvP();

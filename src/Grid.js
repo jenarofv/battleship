@@ -55,6 +55,12 @@ class Grid {
     }
     gridContainer.appendChild(xLabelsContainer);
   }
+}
+
+class PlayerGrid extends Grid {
+  constructor(name) {
+    super(name, "Player Grid");
+  }
 
   render(player) {
     const shipCells = player.gameboard.usedCells;
@@ -72,15 +78,29 @@ class Grid {
     }
   }
 }
-
-class PlayerGrid extends Grid {
-  constructor(name) {
-    super(name, "Player Grid");
-  }
-}
 class AttackGrid extends Grid {
   constructor(name) {
     super(name, "Attack Grid");
+  }
+
+  // needs: missedshots, receivedAttacks
+  render(player) {
+    const shipCells = player.gameboard.usedCells;
+    const attackedCells = player.gameboard.receivedAttacks;
+    const cells = document.querySelectorAll(`#${this.name} .cell`);
+    for (const cell of cells) {
+      cell.textContent = "";
+      cell.className = "cell";
+      if (!attackedCells.includes(cell.coords)) {
+        continue;
+      }
+      if (shipCells[cell.coords] !== undefined) {
+        cell.textContent = "🔥";
+        cell.classList.add("boat");
+      } else {
+        cell.textContent = "✘";
+      }
+    }
   }
 }
 
