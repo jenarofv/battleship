@@ -107,8 +107,8 @@ class PvP {
 
 class GameSelector {
   constructor() {
-    const body = document.querySelector("body");
-    const bodyInner = body.innerHTML;
+    const main = document.querySelector("main");
+    const mainInner = main.innerHTML;
     const question = document.createElement("h2");
     question.innerText = "How do you want to play?";
     question.style.marginTop = "100px";
@@ -119,19 +119,19 @@ class GameSelector {
     pvc.innerText = "Player vs Computer";
     const btnContainer = document.createElement("div");
     pvc.addEventListener("click", () => {
-      body.innerHTML = bodyInner;
+      main.innerHTML = mainInner;
       new PvC();
     });
     pvp.addEventListener("click", () => {
-      body.innerHTML = bodyInner;
+      main.innerHTML = mainInner;
       new PvP();
     });
     btnContainer.style.display = "flex";
     btnContainer.style.justifyContent = "space-evenly";
     btnContainer.appendChild(pvp);
     btnContainer.appendChild(pvc);
-    body.appendChild(question);
-    body.appendChild(btnContainer);
+    main.appendChild(question);
+    main.appendChild(btnContainer);
   }
 }
 
