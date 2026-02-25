@@ -101,4 +101,34 @@ class PvP {
   }
 }
 
-export { PvC, PvP };
+class GameSelector {
+  constructor() {
+    const body = document.querySelector("body");
+    const bodyInner = body.innerHTML;
+    const question = document.createElement("h2");
+    question.innerText = "How do you want to play?";
+    question.style.marginTop = "100px";
+    question.style.textAlign = "center";
+    const pvp = document.createElement("button");
+    const pvc = document.createElement("button");
+    pvp.innerText = "Player vs Player (same screen)";
+    pvc.innerText = "Player vs Computer";
+    const btnContainer = document.createElement("div");
+    pvc.addEventListener("click", () => {
+      body.innerHTML = bodyInner;
+      new PvC();
+    });
+    pvp.addEventListener("click", () => {
+      body.innerHTML = bodyInner;
+      new PvP();
+    });
+    btnContainer.style.display = "flex";
+    btnContainer.style.justifyContent = "space-evenly";
+    btnContainer.appendChild(pvp);
+    btnContainer.appendChild(pvc);
+    body.appendChild(question);
+    body.appendChild(btnContainer);
+  }
+}
+
+export { GameSelector };
