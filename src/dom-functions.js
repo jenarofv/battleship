@@ -32,6 +32,7 @@ function pvcAttack(event, player, oponent) {
     }
   } catch (err) {
     alert(err);
+    return "error";
   }
 }
 
