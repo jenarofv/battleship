@@ -1,12 +1,12 @@
 :root {
-  --background-color: hsl(177deg, 50%, 50%);
+  --background-color: whitesmoke;
   --font-color: black;
   --boat-color: hsl(0deg, 0%, 10%);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background-color: hsl(177deg, 50%, 21%);
+    --background-color: #353535;
     --font-color: white;
     --boat-color: hsl(0deg, 0%, 90%);
   }
