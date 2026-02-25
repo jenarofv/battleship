@@ -23,6 +23,7 @@ class PvC {
         }
         return;
       }
+      attackGrid.render(player2);
       computerAttack(player1);
       player1Grid.render(player1);
     }
